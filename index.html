@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Deriv Matches Tool</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Deriv Matches Tool</h1>
+      <p>Live, read-only last-digit analysis from Deriv tick data.</p>
+    </header>
+
+    <section class="card controls">
+      <label for="symbol">Market</label>
+      <select id="symbol">
+        <option value="R_10">Volatility 10 Index</option>
+        <option value="R_25">Volatility 25 Index</option>
+        <option value="R_50">Volatility 50 Index</option>
+        <option value="R_75">Volatility 75 Index</option>
+        <option value="R_100">Volatility 100 Index</option>
+      </select>
+      <button id="connect">Connect</button>
+      <button id="disconnect" class="secondary" disabled>Disconnect</button>
+      <span id="status" class="status">Disconnected</span>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Latest tick</h2>
+        <div id="price" class="big">—</div>
+        <div>Last digit: <strong id="lastDigit">—</strong></div>
+      </div>
+
+      <div class="card">
+        <h2>Sample</h2>
+        <div id="count" class="big">0</div>
+        <div>ticks analyzed</div>
+      </div>
+
+      <div class="card">
+        <h2>Most frequent digit</h2>
+        <div id="topDigit" class="big">—</div>
+        <div id="topPercent">—</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Digit distribution</h2>
+      <div id="digits" class="digits"></div>
+    </section>
+
+    <section class="card">
+      <h2>Recent digits</h2>
+      <div id="recent" class="recent"></div>
+      <p class="note">
+        This tool is for market-data analysis only. It does not place trades,
+        predict guaranteed outcomes, or manage a Deriv account.
+      </p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
